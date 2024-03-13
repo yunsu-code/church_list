@@ -7,7 +7,7 @@ import BaseListForm from "@pages/form/BaseListForm";
 function App() {
   return (
     <Routes>
-      <Route exact path="/" element={<Main />} />
+      <Route exact path="/church_list" element={<Main />} />
       <Route exact path="/BaseLIst" element={<BaseLIst />} />
       <Route exact path="/BaseListForm" element={<BaseListForm />} />
     </Routes>
