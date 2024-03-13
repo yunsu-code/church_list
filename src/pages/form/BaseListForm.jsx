@@ -8,6 +8,8 @@ import SelectBtnInputType from "../../components/form/SelectBtnInputType";
 import { useNavigate } from "react-router-dom";
 import TextListType from "../../components/form/TextListType";
 import BibleInputType from "../../components/form/BibleInputType";
+import { Reset } from "styled-reset";
+import Header from "@components/common/Header";
 
 const BaseListForm = () => {
   let basicList = useSelector((state) => state.basicList);
@@ -45,40 +47,44 @@ const BaseListForm = () => {
   };
 
   return (
-    <Container>
-      {Object.entries(basicList).map(([key, value], idx) => {
-        return (
-          <div key={idx}>
-            {value.type === "basic" ? (
-              <BasicInputType
-                label={key}
-                ref={(el) => (inputRef.current[idx] = el)}
-                idx={idx}
-              />
-            ) : value.type === "bible" ? (
-              <BibleInputType
-                label={key}
-                ref={(el) => (inputRef.current[idx] = el)}
-                idx={idx}
-              />
-            ) : value.type === "select" ? (
-              <SelectBtnInputType
-                label={key}
-                ref={(el) => (inputRef.current[idx] = el)}
-                idx={idx}
-              />
-            ) : null}
-          </div>
-        );
-      })}
-      <div>
-        <TextListType ref={noticeRef} />
-      </div>
+    <>
+      <Reset />
+      <Header />
+      <Container>
+        {Object.entries(basicList).map(([key, value], idx) => {
+          return (
+            <div key={idx}>
+              {value.type === "basic" ? (
+                <BasicInputType
+                  label={key}
+                  ref={(el) => (inputRef.current[idx] = el)}
+                  idx={idx}
+                />
+              ) : value.type === "bible" ? (
+                <BibleInputType
+                  label={key}
+                  ref={(el) => (inputRef.current[idx] = el)}
+                  idx={idx}
+                />
+              ) : value.type === "select" ? (
+                <SelectBtnInputType
+                  label={key}
+                  ref={(el) => (inputRef.current[idx] = el)}
+                  idx={idx}
+                />
+              ) : null}
+            </div>
+          );
+        })}
+        <div>
+          <TextListType ref={noticeRef} />
+        </div>
 
-      <button type="button" onClick={submit}>
-        완료
-      </button>
-    </Container>
+        <button type="button" onClick={submit}>
+          완료
+        </button>
+      </Container>
+    </>
   );
 };
 
