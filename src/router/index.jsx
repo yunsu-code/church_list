@@ -2,8 +2,9 @@ import { createBrowserRouter } from "react-router-dom";
 import Main from "@pages/view/Main";
 import BaseLIst from "@pages/view/BaseLIst";
 import BaseListForm from "@pages/form/BaseListForm";
+import { createHashRouter } from "react-router-dom";
 
-const router = createBrowserRouter(
+const router = createHashRouter(
   [
     {
       path: "/",
@@ -18,7 +19,7 @@ const router = createBrowserRouter(
       element: <BaseListForm />,
     },
   ],
-  { basename: "/church_list/" }
+  { basename: "/" }
 );
 
 export default router;
