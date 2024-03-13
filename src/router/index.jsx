@@ -18,7 +18,7 @@ const router = createBrowserRouter(
       element: <BaseListForm />,
     },
   ],
-  { basename: "/church_list" }
+  { basename: "/church_list/" }
 );
 
 export default router;
