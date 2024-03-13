@@ -5,6 +5,7 @@ const __dirname = path.resolve();
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  base: "/church_list/",
   plugins: [react()],
   resolve: {
     alias: [
