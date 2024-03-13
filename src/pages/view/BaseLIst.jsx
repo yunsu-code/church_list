@@ -13,18 +13,22 @@ const BaseLIst = () => {
         <li>* bible : {basicList.bible.value}</li>
         <li>* username : {basicList.username.value}</li>
         <li>
-          * litany : {litany[basicList.litany.value].name}
-          <br />
-          {litany[basicList.litany.value].text.map((el, idx) => {
-            if (idx % 2 == 0) {
-              return <div key={idx}>★ {el}</div>;
-            } else {
-              return <div key={idx}>{el}</div>;
-            }
-          })}
-          {litany[basicList.litany.value].all
-            ? litany[basicList.litany.value].all
-            : null}
+          {basicList.litany.value !== "" ? (
+            <>
+              * litany : {litany[basicList.litany.value].name}
+              <br />
+              {litany[basicList.litany.value].text.map((el, idx) => {
+                if (idx % 2 == 0) {
+                  return <div key={idx}>★ {el}</div>;
+                } else {
+                  return <div key={idx}>{el}</div>;
+                }
+              })}
+              {litany[basicList.litany.value].all
+                ? litany[basicList.litany.value].all
+                : null}
+            </>
+          ) : null}
         </li>
       </ul>
     </Container>
