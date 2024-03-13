@@ -12,7 +12,7 @@ const Main = () => {
       <Container>
         <div className={styles.mainWrap}>
           <Link to="/BaseList">BaseList</Link>
-          <Link to="/BaseListForm">BaseListForm</Link>
+          <Link to="/BaseListForm">BaseListForm22</Link>
         </div>
       </Container>
     </>
