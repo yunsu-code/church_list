@@ -32,7 +32,6 @@ const BaseListForm = () => {
     Object.keys(noticeRef.current).forEach(function (key) {
       noticeInput = noticeRef.current[key];
       const inputVal = noticeInput.value;
-      // console.log(inputVal);
       noticeArr.push(inputVal);
     });
     if (input.value !== "" && noticeInput.value !== "") {

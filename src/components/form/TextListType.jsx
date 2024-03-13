@@ -1,47 +1,48 @@
 import { forwardRef, useState } from "react";
+import { useSelector } from "react-redux";
 
 const TextList = ({ value }, ref) => {
-  const [inputList, setInputList] = useState([{ value: "" }]);
+  const noticeList = useSelector((state) => state.notice);
+  const [inputList, setInputList] = useState(
+    noticeList.length !== 0 ? noticeList : [""]
+  );
 
-  // handle input change
   const handleInputChange = (e, index) => {
-    const { name, value } = e.target;
+    const { value } = e.target;
     const list = [...inputList];
-    list[index][name] = value;
+    list[index] = value;
     setInputList(list);
   };
 
-  // handle click event of the Remove button
   const handleRemoveClick = (index) => {
     const list = [...inputList];
     list.splice(index, 1);
     setInputList(list);
   };
 
-  // handle click event of the Add button
   const handleAddClick = () => {
-    setInputList([...inputList, { value: "" }]);
+    setInputList([...inputList, ""]);
   };
 
   return (
     <>
-      {inputList.map((x, i) => {
+      {inputList.map((item, idx) => {
         return (
-          <div key={i}>
+          <div key={idx}>
             <input
-              ref={(el) => (ref.current[i] = el)}
-              name="vaule"
+              ref={(el) => (ref.current[idx] = el)}
+              name="vaules"
               placeholder="Enter First Name"
-              value={x.vaule || ""}
-              onChange={(e) => handleInputChange(e, i)}
+              value={item || ""}
+              onChange={(e) => handleInputChange(e, idx)}
             />
             <div className="btn-box">
               {inputList.length !== 1 && (
-                <button className="mr10" onClick={() => handleRemoveClick(i)}>
+                <button className="mr10" onClick={() => handleRemoveClick(idx)}>
                   Remove
                 </button>
               )}
-              {inputList.length - 1 === i && (
+              {inputList.length - 1 === idx && (
                 <button onClick={handleAddClick}>Add</button>
               )}
             </div>

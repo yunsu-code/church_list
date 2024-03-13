@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 import litany from "@data/litany.json";
 const BaseLIst = () => {
   const basicList = useSelector((state) => state.basicList);
-  console.log(litany);
+
   return (
     <Container>
       <h2>BaseList</h2>

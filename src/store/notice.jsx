@@ -7,7 +7,7 @@ const notice = createSlice({
   initialState,
   reducers: {
     setNotice: (state, action) => {
-      state = state.push(action.payload);
+      return (state = action.payload);
     },
   },
 });
