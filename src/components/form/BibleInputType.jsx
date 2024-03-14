@@ -1,10 +1,9 @@
-import styles from "./BasicInputType.module.scss";
+import styles from "./BibleInputType.module.scss";
 import { useEffect } from "react";
 import { forwardRef, useState } from "react";
-import { useSelector } from "react-redux";
+import cx from "classnames";
 
-const BibleInput = ({ label, value, idx }, ref) => {
-  const basicList = useSelector((state) => state.basicList);
+const BibleInput = ({ label }, ref) => {
   let [values, setvalues] = useState();
   let [bibleName, setBibleName] = useState();
   let [bibleFirstNum, setBibleFirstNum] = useState();
@@ -31,30 +30,32 @@ const BibleInput = ({ label, value, idx }, ref) => {
 
   return (
     <>
-      <div className={styles.basicInputWrap}>
-        <div className={styles.inputWrap}>
-          <label>{label}</label>
-          <input
-            type="text"
-            className={label}
-            ref={ref}
-            readOnly
-            value={values || ""}
-          />
+      <div className={styles.inputWrap}>
+        <label>{label}</label>
+        <input
+          type="text"
+          className={cx(label, styles.unvisible)}
+          ref={ref}
+          readOnly
+          value={values || ""}
+        />
+        <div className={styles.bibleInputs}>
           <input type="text" onChange={onBibleName} value={bibleName || ""} />
+          <span className={styles.colon}>.</span>
           <input
             type="text"
             onChange={onBibleFirstNum}
             value={bibleFirstNum || ""}
-          />{" "}
-          :{" "}
+            placeholder="장"
+          />
+          <span className={styles.colon}>:</span>
           <input
             type="text"
             onChange={onBibleSecondNum}
             value={bibleSecondNum || ""}
+            placeholder="절"
           />
         </div>
-        {/* <p className={styles.errorMessage}>내용을 입력해주세요</p> */}
       </div>
     </>
   );

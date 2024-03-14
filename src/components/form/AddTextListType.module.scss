@@ -1,0 +1,47 @@
+.inputWrap {
+  display: flex;
+  align-items: flex-start;
+  padding: 12px 0;
+  gap: 8px;
+  label {
+    font-size: 16px;
+    line-height: 1.25;
+    word-break: keep-all;
+    margin: 3px 8px 0;
+    min-width: 92px;
+    max-width: 92px;
+  }
+}
+.inputBoxWrap {
+  .inputBox {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 10px;
+  }
+  input {
+    border-radius: 6px;
+    border: 1px solid #b3b3b3;
+    padding: 10px;
+    width: 540px;
+    font-size: 16px;
+    &::placeholder {
+      font-size: 16px;
+    }
+  }
+  .delBtn {
+    padding: 10px;
+    background-color: #8d8d8d;
+    color: #fff;
+    border-radius: 8px;
+    font-weight: 700;
+    width: 55px;
+  }
+  .addBtn {
+    padding: 10px;
+    background-color: #292929;
+    color: #fff;
+    border-radius: 8px;
+    font-weight: 700;
+    width: 55px;
+  }
+}

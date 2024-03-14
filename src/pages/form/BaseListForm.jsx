@@ -4,16 +4,17 @@ import { useRef } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { setValue } from "@store/basicList";
 import { setNotice } from "@store/notice";
-import SelectBtnInputType from "../../components/form/SelectBtnInputType";
+import SelectBtnInputType from "@components/form/SelectBtnInputType";
 import { useNavigate } from "react-router-dom";
-import TextListType from "../../components/form/TextListType";
-import BibleInputType from "../../components/form/BibleInputType";
+import AddTextListType from "@components/form/AddTextListType";
+import BibleInputType from "@components/form/BibleInputType";
 import { Reset } from "styled-reset";
 import Header from "@components/common/Header";
+import styles from "./BaseListForm.module.scss";
 
 const BaseListForm = () => {
   let basicList = useSelector((state) => state.basicList);
-  let noticeList = useSelector((state) => state.notice);
+
   const inputRef = useRef({});
   const noticeRef = useRef({});
   const dispatch = useDispatch();
@@ -29,17 +30,20 @@ const BaseListForm = () => {
       input = inputRef.current[key];
       const inputName = input.className;
       inputObj = map.set(inputName, input.value);
-      console.log(inputObj);
     });
     Object.keys(noticeRef.current).forEach(function (key) {
-      noticeInput = noticeRef.current[key];
-      const inputVal = noticeInput.value;
-      noticeArr.push(inputVal);
+      if (
+        noticeRef.current[key] != null ||
+        noticeRef.current[key] != undefined
+      ) {
+        noticeInput = noticeRef.current[key];
+        const inputVal = noticeInput.value;
+        noticeArr.push(inputVal);
+      }
     });
     if (input.value !== "" && noticeInput.value !== "") {
       dispatch(setValue(inputObj));
       dispatch(setNotice(noticeArr));
-
       navigate("/BaseList");
     } else {
       alert("빈칸을 입력하세요");
@@ -77,12 +81,13 @@ const BaseListForm = () => {
           );
         })}
         <div>
-          <TextListType ref={noticeRef} />
+          <AddTextListType label={"공지사항"} ref={noticeRef} />
         </div>
-
-        <button type="button" onClick={submit}>
-          완료
-        </button>
+        <div className={styles.submitBtnWrap}>
+          <button type="button" className={styles.submitBtn} onClick={submit}>
+            완료
+          </button>
+        </div>
       </Container>
     </>
   );
