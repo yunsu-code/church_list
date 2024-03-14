@@ -30,7 +30,6 @@ const BaseListForm = () => {
       input = inputRef.current[key];
       const inputName = input.className;
       inputObj = map.set(inputName, input.value);
-      // console.log(inputObj);
     });
     Object.keys(noticeRef.current).forEach(function (key) {
       if (

@@ -21,7 +21,6 @@ const BibleInput = ({ label }, ref) => {
   const onBibleSecondNum = (e) => {
     const { value } = e.target;
     setBibleSecondNum(value);
-    console.log(value);
   };
 
   useEffect(() => {
