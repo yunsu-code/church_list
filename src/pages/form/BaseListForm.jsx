@@ -30,6 +30,7 @@ const BaseListForm = () => {
       input = inputRef.current[key];
       const inputName = input.className;
       inputObj = map.set(inputName, input.value);
+      // console.log(inputObj);
     });
     Object.keys(noticeRef.current).forEach(function (key) {
       if (
@@ -41,7 +42,7 @@ const BaseListForm = () => {
         noticeArr.push(inputVal);
       }
     });
-    if (input.value !== "" && noticeInput.value !== "") {
+    if (input.value === 0 && noticeInput.value !== "") {
       dispatch(setValue(inputObj));
       dispatch(setNotice(noticeArr));
       navigate("/BaseList");

@@ -26,11 +26,11 @@
     font-size: 18px;
     font-weight: 700;
   }
+  [class^="bible"] {
+    display: none;
+  }
 }
 .bibleInputs {
   display: flex;
   align-items: center;
-}
-.unvisible {
-  display: none;
 }

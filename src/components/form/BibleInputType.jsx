@@ -1,13 +1,12 @@
 import styles from "./BibleInputType.module.scss";
 import { useEffect } from "react";
 import { forwardRef, useState } from "react";
-import cx from "classnames";
 
 const BibleInput = ({ label }, ref) => {
-  let [values, setvalues] = useState();
-  let [bibleName, setBibleName] = useState();
-  let [bibleFirstNum, setBibleFirstNum] = useState();
-  let [bibleSecondNum, setBibleSecondNum] = useState();
+  const [values, setvalues] = useState("");
+  const [bibleName, setBibleName] = useState("");
+  const [bibleFirstNum, setBibleFirstNum] = useState("");
+  const [bibleSecondNum, setBibleSecondNum] = useState("");
 
   const onBibleName = (e) => {
     const { value } = e.target;
@@ -22,10 +21,16 @@ const BibleInput = ({ label }, ref) => {
   const onBibleSecondNum = (e) => {
     const { value } = e.target;
     setBibleSecondNum(value);
+    console.log(value);
   };
 
   useEffect(() => {
-    setvalues(bibleName + "." + bibleFirstNum + ":" + bibleSecondNum);
+    if (bibleName !== "" && bibleFirstNum !== "" && bibleSecondNum !== "") {
+      setvalues(bibleName + "." + bibleFirstNum + ":" + bibleSecondNum);
+    }
+    if (bibleName === "" || bibleFirstNum === "" || bibleSecondNum === "") {
+      setvalues("");
+    }
   }, [bibleName, bibleFirstNum, bibleSecondNum]);
 
   return (
@@ -34,9 +39,9 @@ const BibleInput = ({ label }, ref) => {
         <label>{label}</label>
         <input
           type="text"
-          className={cx(label, styles.unvisible)}
-          ref={ref}
+          className={label}
           readOnly
+          ref={ref}
           value={values || ""}
         />
         <div className={styles.bibleInputs}>
