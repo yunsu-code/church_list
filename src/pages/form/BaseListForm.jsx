@@ -22,7 +22,7 @@ const BaseListForm = () => {
 
   const submit = () => {
     const map = new Map();
-    let inputObj;
+    let inputObj = {};
     let noticeArr = [];
     let input;
     let noticeInput;
@@ -30,6 +30,10 @@ const BaseListForm = () => {
       input = inputRef.current[key];
       const inputName = input.className;
       inputObj = map.set(inputName, input.value);
+      if (inputObj.get(input.className) === "") {
+        return console.log("sssss");
+      }
+      inputObj.filter(() => {});
     });
     Object.keys(noticeRef.current).forEach(function (key) {
       if (
@@ -41,13 +45,17 @@ const BaseListForm = () => {
         noticeArr.push(inputVal);
       }
     });
-    if (input.value === 0 && noticeInput.value !== "") {
-      dispatch(setValue(inputObj));
-      dispatch(setNotice(noticeArr));
-      navigate("/BaseList");
-    } else {
-      alert("빈칸을 입력하세요");
-    }
+    // console.log(inputObj.get("id"));
+    // console.log(noticeInput);
+
+    // console.log(inputObj.key);
+    // if (noticeInput.value !== "") {
+    // dispatch(setValue(inputObj));
+    // dispatch(setNotice(noticeArr));
+    // navigate("/BaseList");
+    // } else {
+    // alert("빈칸을 입력하세요");
+    // }
   };
 
   return (
