@@ -30,7 +30,24 @@
     display: none;
   }
 }
-.bibleInputs {
+.bibleInputsWrap {
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  gap: 10px;
+  .bibleInputs {
+    display: flex;
+    align-items: center;
+    &.unVisible {
+      display: none;
+    }
+  }
+  .secondVisibleBtn {
+    padding: 10px;
+    background-color: #292929;
+    color: #fff;
+    border-radius: 8px;
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-left: 8px;
+  }
 }

@@ -1,12 +1,19 @@
 import styles from "./BibleInputType.module.scss";
 import { useEffect } from "react";
 import { forwardRef, useState } from "react";
+import cx from "classnames";
 
 const BibleInput = ({ label }, ref) => {
   const [values, setvalues] = useState("");
   const [bibleName, setBibleName] = useState("");
   const [bibleFirstNum, setBibleFirstNum] = useState("");
   const [bibleSecondNum, setBibleSecondNum] = useState("");
+  const [secondBibleArea, setSecondBibleArea] = useState(false);
+  const [secondBibleName, setSecondBibleName] = useState("");
+  const [secondBibleFirstNum, setSecondBibleFirstNum] = useState("");
+  const [secondBibleSecondNum, setSecondBibleSecondNum] = useState("");
+  const [firstBibleFullName, setFirstBibleFullName] = useState("");
+  const [secondBibleFullName, setSecondBibleFullName] = useState("");
 
   const onBibleName = (e) => {
     const { value } = e.target;
@@ -23,14 +30,65 @@ const BibleInput = ({ label }, ref) => {
     setBibleSecondNum(value);
   };
 
+  //
+  const onSecondBibleName = (e) => {
+    const { value } = e.target;
+    setSecondBibleName(value);
+  };
+
+  const onSecondBibleFirstNum = (e) => {
+    const { value } = e.target;
+    setSecondBibleFirstNum(value);
+  };
+
+  const onSecondBibleSecondNum = (e) => {
+    const { value } = e.target;
+    setSecondBibleSecondNum(value);
+  };
+
+  const onSecondBibleArea = (e) => {
+    setSecondBibleArea(true);
+  };
+
+  const onDelSecondBibleArea = () => {
+    setSecondBibleName("");
+    setSecondBibleFirstNum("");
+    setSecondBibleSecondNum("");
+    setSecondBibleFullName("");
+    setSecondBibleArea(false);
+  };
+
   useEffect(() => {
-    if (bibleName !== "" && bibleFirstNum !== "" && bibleSecondNum !== "") {
-      setvalues(bibleName + "." + bibleFirstNum + ":" + bibleSecondNum);
+    if (bibleName !== "" && bibleFirstNum !== "") {
+      setFirstBibleFullName(
+        bibleName +
+          "." +
+          bibleFirstNum +
+          (bibleSecondNum ? `:${bibleSecondNum}` : "")
+      );
+      setvalues(firstBibleFullName);
     }
-    if (bibleName === "" || bibleFirstNum === "" || bibleSecondNum === "") {
+    if (
+      secondBibleArea &&
+      secondBibleName !== "" &&
+      secondBibleFirstNum !== ""
+    ) {
+      setSecondBibleFullName(
+        secondBibleName +
+          "." +
+          secondBibleFirstNum +
+          (secondBibleSecondNum ? `:${secondBibleSecondNum}` : "")
+      );
+      setvalues(firstBibleFullName + "/" + secondBibleFullName);
+    }
+    if (bibleName === "" || bibleFirstNum === "") {
+      setFirstBibleFullName("");
       setvalues("");
     }
-  }, [bibleName, bibleFirstNum, bibleSecondNum]);
+    if (secondBibleName === "" || secondBibleFirstNum === "") {
+      setSecondBibleFullName("");
+    }
+  });
 
   return (
     <>
@@ -43,22 +101,64 @@ const BibleInput = ({ label }, ref) => {
           ref={ref}
           value={values || ""}
         />
-        <div className={styles.bibleInputs}>
-          <input type="text" onChange={onBibleName} value={bibleName || ""} />
-          <span className={styles.colon}>.</span>
-          <input
-            type="text"
-            onChange={onBibleFirstNum}
-            value={bibleFirstNum || ""}
-            placeholder="장"
-          />
-          <span className={styles.colon}>:</span>
-          <input
-            type="text"
-            onChange={onBibleSecondNum}
-            value={bibleSecondNum || ""}
-            placeholder="절"
-          />
+        <div className={styles.bibleInputsWrap}>
+          <div className={styles.bibleInputs}>
+            <input type="text" onChange={onBibleName} value={bibleName || ""} />
+            <span className={styles.colon}>.</span>
+            <input
+              type="text"
+              onChange={onBibleFirstNum}
+              value={bibleFirstNum || ""}
+              placeholder="장"
+            />
+            <span className={styles.colon}>:</span>
+            <input
+              type="text"
+              onChange={onBibleSecondNum}
+              value={bibleSecondNum || ""}
+              placeholder="절"
+            />
+            <button
+              type="button"
+              className={styles.secondVisibleBtn}
+              onClick={onSecondBibleArea}
+            >
+              두번째 말씀 추가
+            </button>
+          </div>
+          <div
+            className={cx(
+              styles.bibleInputs,
+              secondBibleArea ? null : styles.unVisible
+            )}
+          >
+            <input
+              type="text"
+              onChange={onSecondBibleName}
+              value={secondBibleName || ""}
+            />
+            <span className={styles.colon}>.</span>
+            <input
+              type="text"
+              onChange={onSecondBibleFirstNum}
+              value={secondBibleFirstNum || ""}
+              placeholder="장"
+            />
+            <span className={styles.colon}>:</span>
+            <input
+              type="text"
+              onChange={onSecondBibleSecondNum}
+              value={secondBibleSecondNum || ""}
+              placeholder="절"
+            />
+            <button
+              type="button"
+              className={styles.secondVisibleBtn}
+              onClick={onDelSecondBibleArea}
+            >
+              두번째 말씀 삭제
+            </button>
+          </div>
         </div>
       </div>
     </>
