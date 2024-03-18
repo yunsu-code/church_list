@@ -14,7 +14,6 @@ import styles from "./BaseListForm.module.scss";
 
 const BaseListForm = () => {
   let basicList = useSelector((state) => state.basicList);
-
   const inputRef = useRef({});
   const noticeRef = useRef({});
   const dispatch = useDispatch();
@@ -22,6 +21,7 @@ const BaseListForm = () => {
 
   const submit = () => {
     const map = new Map();
+    let inputObjValues = [];
     let inputObj = {};
     let noticeArr = [];
     let input;
@@ -30,10 +30,6 @@ const BaseListForm = () => {
       input = inputRef.current[key];
       const inputName = input.className;
       inputObj = map.set(inputName, input.value);
-      if (inputObj.get(input.className) === "") {
-        return console.log("sssss");
-      }
-      inputObj.filter(() => {});
     });
     Object.keys(noticeRef.current).forEach(function (key) {
       if (
@@ -45,17 +41,23 @@ const BaseListForm = () => {
         noticeArr.push(inputVal);
       }
     });
-    // console.log(inputObj.get("id"));
-    // console.log(noticeInput);
 
-    // console.log(inputObj.key);
-    // if (noticeInput.value !== "") {
-    // dispatch(setValue(inputObj));
-    // dispatch(setNotice(noticeArr));
-    // navigate("/BaseList");
-    // } else {
-    // alert("빈칸을 입력하세요");
-    // }
+    inputObj.forEach((val) => {
+      inputObjValues.push(val);
+    });
+    const checkInputValues = inputObjValues.filter((item) => {
+      return item === "";
+    });
+    const checknoticeValues = noticeArr.filter((item) => {
+      return item === "";
+    });
+    if (checkInputValues.length === 0 && checknoticeValues.length === 0) {
+      dispatch(setValue(inputObj));
+      dispatch(setNotice(noticeArr));
+      navigate("/BaseList");
+    } else {
+      alert("빈칸을 입력하세요");
+    }
   };
 
   return (
