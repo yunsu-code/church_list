@@ -30,7 +30,6 @@ const BibleInput = ({ label }, ref) => {
     setBibleSecondNum(value);
   };
 
-  //
   const onSecondBibleName = (e) => {
     const { value } = e.target;
     setSecondBibleName(value);
@@ -46,7 +45,7 @@ const BibleInput = ({ label }, ref) => {
     setSecondBibleSecondNum(value);
   };
 
-  const onSecondBibleArea = (e) => {
+  const onSecondBibleArea = () => {
     setSecondBibleArea(true);
   };
 
