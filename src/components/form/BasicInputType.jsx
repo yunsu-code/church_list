@@ -1,7 +1,7 @@
 import styles from "./BasicInputType.module.scss";
 import { forwardRef, useState } from "react";
 
-const BasicInput = ({ label }, ref) => {
+const BasicInput = ({ label, target }, ref) => {
   let [values, setvalues] = useState();
 
   const onChange = (e) => {
@@ -15,7 +15,7 @@ const BasicInput = ({ label }, ref) => {
         <label>{label}</label>
         <input
           type="text"
-          className={label}
+          className={target}
           ref={ref}
           onChange={onChange}
           value={values || ""}

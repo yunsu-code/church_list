@@ -1,7 +1,7 @@
 import styles from "./SelectBtnInputType.module.scss";
 import { forwardRef, useState } from "react";
 
-const SelectBtnInput = ({ label }, ref) => {
+const SelectBtnInput = ({ label, target }, ref) => {
   let [values, setValues] = useState([]);
   let [selectVal, setSelectVal] = useState();
 
@@ -26,7 +26,7 @@ const SelectBtnInput = ({ label }, ref) => {
           readOnly
           inputMode="none"
           type="text"
-          className={label}
+          className={target}
           ref={ref}
           value={values || ""}
           placeholder="오른쪽 박스에서 선택해주세요"

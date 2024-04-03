@@ -3,7 +3,7 @@ import { useEffect } from "react";
 import { forwardRef, useState } from "react";
 import cx from "classnames";
 
-const BibleInput = ({ label }, ref) => {
+const BibleInput = ({ label, target }, ref) => {
   const [values, setvalues] = useState("");
   const [bibleName, setBibleName] = useState("");
   const [bibleFirstNum, setBibleFirstNum] = useState("");
@@ -95,7 +95,7 @@ const BibleInput = ({ label }, ref) => {
         <label>{label}</label>
         <input
           type="text"
-          className={label}
+          className={target}
           readOnly
           ref={ref}
           value={values || ""}

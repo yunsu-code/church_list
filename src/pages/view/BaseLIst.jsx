@@ -14,24 +14,29 @@ const BaseLIst = () => {
       <Container>
         <h2>BaseList</h2>
         <ul>
-          <li>* id : {basicList.id.value}</li>
-          <li>* email : {basicList.email.value}</li>
-          <li>* bible : {basicList.bible.value}</li>
-          <li>* username : {basicList.username.value}</li>
+          <li>* section01.id : {basicList.section01.id.value}</li>
+          <li>* section01.bible : {basicList.section01.bible.value}</li>
+          <li>* section01.user : {basicList.section01.user.value}</li>
+          <li>* section02.id : {basicList.section02.id.value}</li>
+          <li>* section02.bible : {basicList.section02.bible.value}</li>
+          <li>* section02.user : {basicList.section02.user.value}</li>
+          <li>* section03.id : {basicList.section03.id.value}</li>
+          <li>* section03.bible : {basicList.section03.bible.value}</li>
+          <li>* section03.user : {basicList.section03.user.value}</li>
           <li>
-            {basicList.litany.value !== "" ? (
+            {basicList.section03.user.value !== "" ? (
               <>
-                * litany : {litany[basicList.litany.value].name}
+                * litany : {litany[basicList.section03.user.value].name}
                 <br />
-                {litany[basicList.litany.value].text.map((el, idx) => {
+                {litany[basicList.section03.user.value].text.map((el, idx) => {
                   if (idx % 2 == 0) {
                     return <div key={idx}>★ {el}</div>;
                   } else {
                     return <div key={idx}>{el}</div>;
                   }
                 })}
-                {litany[basicList.litany.value].all
-                  ? litany[basicList.litany.value].all
+                {litany[basicList.section03.user.value].all
+                  ? litany[basicList.section03.user.value].all
                   : null}
               </>
             ) : null}
