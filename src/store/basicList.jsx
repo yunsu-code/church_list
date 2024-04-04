@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  section01: {
+  주일낮예배: {
     id: {
       name: "Id",
       type: "basic",
@@ -18,7 +18,7 @@ const initialState = {
       value: "",
     },
   },
-  section02: {
+  주일찬양예배: {
     id: {
       name: "Id22",
       type: "basic",
@@ -35,7 +35,7 @@ const initialState = {
       value: "",
     },
   },
-  section03: {
+  수요예배: {
     id: {
       name: "Id33",
       type: "select",
@@ -48,6 +48,40 @@ const initialState = {
     },
     user: {
       name: "users333",
+      type: "basic",
+      value: "",
+    },
+  },
+  금요예배: {
+    id: {
+      name: "Id33",
+      type: "select",
+      value: "",
+    },
+    bible: {
+      name: "bible3",
+      type: "basic",
+      value: "",
+    },
+    user: {
+      name: "users333",
+      type: "basic",
+      value: "",
+    },
+  },
+  다음주예배위원: {
+    id: {
+      name: "Id44",
+      type: "select",
+      value: "",
+    },
+    bible: {
+      name: "bible4",
+      type: "basic",
+      value: "",
+    },
+    user: {
+      name: "users444",
       type: "basic",
       value: "",
     },
