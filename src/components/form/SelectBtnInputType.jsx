@@ -1,11 +1,21 @@
 import styles from "./SelectBtnInputType.module.scss";
 import { forwardRef, useState } from "react";
+import { useEffect } from "react";
 
-const SelectBtnInput = ({ label, target }, ref) => {
+const SelectBtnInput = ({ label, target, edit, lastValue }, ref) => {
   let [values, setValues] = useState([]);
   let [selectVal, setSelectVal] = useState();
 
   const member = ["김철수", "이영희", "신윤수", "신민영", "최하영", "이준혁"];
+
+  // 수정하기
+  useEffect(() => {
+    if (edit) {
+      setValues([lastValue]);
+    } else {
+      setValues("");
+    }
+  }, [edit]);
 
   const onChange = (e) => {
     const { value } = e.target;

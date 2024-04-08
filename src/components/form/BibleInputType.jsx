@@ -3,7 +3,7 @@ import { useEffect } from "react";
 import { forwardRef, useState } from "react";
 import cx from "classnames";
 
-const BibleInput = ({ label, target }, ref) => {
+const BibleInput = ({ label, target, edit, lastValue }, ref) => {
   const [values, setvalues] = useState("");
   const [bibleName, setBibleName] = useState("");
   const [bibleFirstNum, setBibleFirstNum] = useState("");
@@ -14,6 +14,41 @@ const BibleInput = ({ label, target }, ref) => {
   const [secondBibleSecondNum, setSecondBibleSecondNum] = useState("");
   const [firstBibleFullName, setFirstBibleFullName] = useState("");
   const [secondBibleFullName, setSecondBibleFullName] = useState("");
+
+  // 수정하기
+  useEffect(() => {
+    if (edit) {
+      if (lastValue.includes("/")) {
+        setSecondBibleArea(true);
+        const twoBible = lastValue.split("/");
+        setBibleName(twoBible[0].split(".")[0]);
+        setSecondBibleName(twoBible[1].split(".")[0]);
+        if (lastValue.includes(":")) {
+          setBibleFirstNum(twoBible[0].split(".")[1].split(":")[0]);
+          setBibleSecondNum(twoBible[0].split(".")[1].split(":")[1]);
+          setSecondBibleFirstNum(twoBible[1].split(".")[1].split(":")[0]);
+          setSecondBibleSecondNum(twoBible[1].split(".")[1].split(":")[1]);
+        } else {
+          setBibleFirstNum(twoBible[0].split(".")[1]);
+          setSecondBibleFirstNum(twoBible[1].split(".")[1]);
+        }
+      } else {
+        console.log(lastValue.split("."));
+        setBibleName(lastValue.split(".")[0]);
+        setBibleFirstNum(lastValue.split(".")[1].split(":")[0]);
+        setBibleSecondNum(lastValue.split(".")[1].split(":")[1]);
+      }
+    } else {
+      setBibleName("");
+      setBibleFirstNum("");
+      setBibleSecondNum("");
+      setSecondBibleName("");
+      setSecondBibleFirstNum("");
+      setSecondBibleSecondNum("");
+      setSecondBibleFullName("");
+      setSecondBibleArea(false);
+    }
+  }, [edit]);
 
   const onBibleName = (e) => {
     const { value } = e.target;

@@ -2,7 +2,7 @@
   text-align: center;
   margin-top: 50px;
 }
-.submitBtn {
+.submitBtnm {
   width: 170px;
   background-color: #000000;
   color: #fff;
@@ -10,4 +10,15 @@
   padding: 10px;
   font-size: 18px;
   font-weight: 700;
+}
+.editBtnWrap {
+  padding: 16px 0;
+  text-align: right;
+}
+.editBtn {
+  background-color: #a5a5a5;
+  color: #fff;
+  border-radius: 8px;
+  padding: 10px;
+  font-size: 16px;
 }

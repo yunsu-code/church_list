@@ -2,7 +2,7 @@
   display: flex;
   align-items: flex-start;
   padding: 12px 0;
-  gap: 8px;
+  gap: 4px;
   label {
     font-size: 16px;
     min-width: 92px;
@@ -21,13 +21,16 @@
       font-size: 16px;
     }
   }
+  input:read-only {
+    width: 0;
+    padding: 0;
+    border: 0;
+    font-size: 0;
+  }
   .colon {
     padding: 0 5px;
     font-size: 18px;
     font-weight: 700;
-  }
-  [class^="bible"] {
-    display: none;
   }
 }
 .bibleInputsWrap {

@@ -1,8 +1,18 @@
+import { useEffect } from "react";
 import styles from "./BasicInputType.module.scss";
 import { forwardRef, useState } from "react";
 
-const BasicInput = ({ label, target }, ref) => {
-  let [values, setvalues] = useState();
+const BasicInput = ({ label, target, lastValue, edit }, ref) => {
+  let [values, setvalues] = useState("");
+
+  // 수정하기
+  useEffect(() => {
+    if (edit) {
+      setvalues(lastValue);
+    } else {
+      setvalues("");
+    }
+  }, [edit]);
 
   const onChange = (e) => {
     const { value } = e.target;

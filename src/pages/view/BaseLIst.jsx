@@ -6,6 +6,7 @@ import litany from "@data/litany.json";
 
 const BaseLIst = () => {
   const basicList = useSelector((state) => state.basicList);
+  const notice = useSelector((state) => state.notice);
 
   return (
     <>
@@ -40,6 +41,13 @@ const BaseLIst = () => {
                   : null}
               </>
             ) : null}
+          </li>
+          <li>
+            * notice :
+            <br />
+            {notice.map((el, idx) => {
+              return <p key={idx}>{el}</p>;
+            })}
           </li>
         </ul>
       </Container>
