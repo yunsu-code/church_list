@@ -46,11 +46,14 @@
   }
   .secondVisibleBtn {
     padding: 10px;
-    background-color: #292929;
+    background-color: #3860ff;
     color: #fff;
     border-radius: 8px;
     font-weight: 700;
     flex-shrink: 0;
     margin-left: 8px;
+    &.delete {
+      background-color: #a5a5a5;
+    }
   }
 }

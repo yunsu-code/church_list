@@ -15,7 +15,7 @@ import styles from "./BaseListForm.module.scss";
 import EventToggleBtn from "../../components/form/EventToggleBtn";
 import { useState } from "react";
 import cx from "classnames";
-
+import AsteriskIcon from "remixicon-react/AsteriskIcon";
 const BaseListForm = () => {
   const basicList = useSelector((state) => state.basicList);
   const [eventName, setEventName] = useState("");
@@ -70,7 +70,6 @@ const BaseListForm = () => {
   const onEdit = () => {
     setEdit(!edit);
   };
-  console.log(edit);
 
   return (
     <>
@@ -83,13 +82,16 @@ const BaseListForm = () => {
             onClick={onEdit}
             className={cx(styles.editBtn, edit ? styles.activeEdit : "")}
           >
-            이전 내역 수정하기
+            {edit ? "취소하기" : "이전 내역 불러오기"}
           </button>
         </div>
         {Object.entries(basicList).map(([key], idx) => {
           return (
-            <div key={key}>
-              <div>{key}</div>
+            <div key={key} className={styles.listContainer}>
+              <div className={styles.listTitle}>
+                <AsteriskIcon size={18} color="#3860ff" />
+                {key}
+              </div>
               {Object.entries(basicList[key]).map(([keys, values], idxs) => {
                 return (
                   <>
@@ -142,11 +144,15 @@ const BaseListForm = () => {
             </div>
           );
         })}
-        <div>
+        <div className={styles.listContainer}>
           <AddTextListType label={"공지사항"} ref={noticeRef} />
         </div>
-        <div>
-          <EventToggleBtn setEventName={setEventName} />
+        <div className={styles.listContainer}>
+          <div className={styles.listTitle}>
+            <AsteriskIcon size={18} color="#3860ff" />
+            특정 날 선택
+          </div>
+          <EventToggleBtn setEventName={setEventName} edit={edit} />
         </div>
         <div className={styles.submitBtnWrap}>
           <button type="button" className={styles.submitBtn} onClick={submit}>

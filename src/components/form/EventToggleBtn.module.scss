@@ -1,11 +1,13 @@
 .eventButton {
   padding: 10px;
+  font-size: 16px;
   background-color: #b1b1b1;
   color: #fff;
   border-radius: 8px;
   font-weight: 700;
+  margin-top: 5px;
   &.current {
-    background-color: #162dff;
+    background-color: #3860ff;
   }
   & + .eventButton {
     margin-left: 8px;

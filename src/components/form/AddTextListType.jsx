@@ -1,5 +1,6 @@
 import { forwardRef, useState, useEffect } from "react";
 import { useSelector } from "react-redux";
+import AsteriskIcon from "remixicon-react/AsteriskIcon";
 import styles from "./AddTextListType.module.scss";
 
 const TextList = ({ label }, ref) => {
@@ -30,8 +31,11 @@ const TextList = ({ label }, ref) => {
   }, [inputList]);
 
   return (
-    <div className={styles.inputWrap}>
-      <label>{label}</label>
+    <div>
+      <div className={styles.listTitle}>
+        <AsteriskIcon size={18} color="#3860ff" />
+        {label}
+      </div>
       <div className={styles.inputBoxWrap}>
         {inputList.map((item, idx) => {
           return (

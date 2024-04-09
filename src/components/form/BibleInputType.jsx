@@ -187,7 +187,7 @@ const BibleInput = ({ label, target, edit, lastValue }, ref) => {
             />
             <button
               type="button"
-              className={styles.secondVisibleBtn}
+              className={cx(styles.secondVisibleBtn, styles.delete)}
               onClick={onDelSecondBibleArea}
             >
               두번째 말씀 삭제
