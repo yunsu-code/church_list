@@ -16,7 +16,9 @@ import EventToggleBtn from "../../components/form/EventToggleBtn";
 import { useState } from "react";
 import cx from "classnames";
 import AsteriskIcon from "remixicon-react/AsteriskIcon";
+
 const BaseListForm = () => {
+  let inputArray = [];
   const basicList = useSelector((state) => state.basicList);
   const [eventName, setEventName] = useState("");
   const [edit, setEdit] = useState(false);
@@ -74,17 +76,16 @@ const BaseListForm = () => {
   return (
     <>
       <Reset />
-      <Header />
+      <Header title={"예배 순서지 입력하기"}>
+        <button
+          type="button"
+          onClick={onEdit}
+          className={cx(styles.editBtn, edit ? styles.activeEdit : "")}
+        >
+          {edit ? "취소하기" : "이전 내역 불러오기"}
+        </button>
+      </Header>
       <Container>
-        <div className={styles.editBtnWrap}>
-          <button
-            type="button"
-            onClick={onEdit}
-            className={cx(styles.editBtn, edit ? styles.activeEdit : "")}
-          >
-            {edit ? "취소하기" : "이전 내역 불러오기"}
-          </button>
-        </div>
         {Object.entries(basicList).map(([key], idx) => {
           return (
             <div key={key} className={styles.listContainer}>
@@ -92,48 +93,43 @@ const BaseListForm = () => {
                 <AsteriskIcon size={18} color="#3860ff" />
                 {key}
               </div>
-              {Object.entries(basicList[key]).map(([keys, values], idxs) => {
+              {Object.entries(basicList[key]).map(([keys, values]) => {
+                inputArray.push(key + keys);
                 return (
                   <>
                     {basicList[key][keys].type === "basic" ? (
                       <BasicInputType
-                        key={keys}
                         label={values.name}
                         target={key + keys}
                         edit={edit}
                         lastValue={values.value}
                         ref={(el) =>
-                          (inputRef.current[
-                            idx === 0 ? idx + idxs : idx * 3 + idxs
-                          ] = el)
+                          (inputRef.current[inputArray.indexOf(key + keys)] =
+                            el)
                         }
                         idx={idx}
                       />
                     ) : basicList[key][keys].type === "bible" ? (
                       <BibleInputType
-                        key={keys}
                         label={values.name}
                         target={key + keys}
                         edit={edit}
                         lastValue={values.value}
                         ref={(el) =>
-                          (inputRef.current[
-                            idx === 0 ? idx + idxs : idx * 3 + idxs
-                          ] = el)
+                          (inputRef.current[inputArray.indexOf(key + keys)] =
+                            el)
                         }
                         idx={idx}
                       />
                     ) : basicList[key][keys].type === "select" ? (
                       <SelectBtnInputType
-                        key={keys}
                         label={values.name}
                         target={key + keys}
                         edit={edit}
                         lastValue={values.value}
                         ref={(el) =>
-                          (inputRef.current[
-                            idx === 0 ? idx + idxs : idx * 3 + idxs
-                          ] = el)
+                          (inputRef.current[inputArray.indexOf(key + keys)] =
+                            el)
                         }
                         idx={idx}
                       />

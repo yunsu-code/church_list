@@ -2,87 +2,97 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   주일낮예배: {
-    id: {
-      name: "Id",
+    찬송가: {
+      name: "찬송가",
       type: "basic",
-      value: "",
+      value: [],
     },
-    bible: {
-      name: "bible",
+    성경봉독: {
+      name: "성경봉독",
       type: "bible",
       value: "",
     },
-    user: {
-      name: "users",
+    교독문: {
+      name: "교독문",
+      type: "basic",
+      value: "",
+    },
+    특송: {
+      name: "특송",
       type: "select",
       value: "",
     },
   },
   주일찬양예배: {
-    id: {
-      name: "Id22",
+    찬송가: {
+      name: "찬송가",
       type: "basic",
-      value: "",
+      value: [],
     },
-    bible: {
-      name: "bible222",
+    성경봉독: {
+      name: "성경봉독",
       type: "bible",
       value: "",
     },
-    user: {
-      name: "users2",
-      type: "basic",
+    기도: {
+      name: "기도",
+      type: "select",
       value: "",
     },
   },
   수요예배: {
-    id: {
-      name: "Id33",
+    찬송가: {
+      name: "찬송가",
+      type: "basic",
+      value: [],
+    },
+    성경봉독: {
+      name: "성경봉독",
+      type: "bible",
+      value: "",
+    },
+    기도: {
+      name: "기도",
       type: "select",
-      value: "",
-    },
-    bible: {
-      name: "bible3",
-      type: "basic",
-      value: "",
-    },
-    user: {
-      name: "users333",
-      type: "basic",
       value: "",
     },
   },
   금요예배: {
-    id: {
-      name: "Id33",
+    찬송가: {
+      name: "찬송가",
+      type: "basic",
+      value: [],
+    },
+    성경봉독: {
+      name: "성경봉독",
+      type: "bible",
+      value: "",
+    },
+    기도: {
+      name: "기도",
       type: "select",
-      value: "",
-    },
-    bible: {
-      name: "bible3",
-      type: "basic",
-      value: "",
-    },
-    user: {
-      name: "users333",
-      type: "basic",
       value: "",
     },
   },
   다음주예배위원: {
-    id: {
-      name: "Id44",
+    주일낮예배기도: {
+      name: "주일 낮 예배 기도",
       type: "select",
       value: "",
     },
-    bible: {
-      name: "bible4",
-      type: "basic",
+    수요예배기도: {
+      name: "수요예배 기도",
+      type: "select",
       value: "",
     },
-    user: {
-      name: "users444",
-      type: "basic",
+    금요예배기도: {
+      name: "금요예배 기도",
+      type: "select",
+      value: "",
+    },
+    특송: {
+      name: "특송",
+      type: "select",
       value: "",
     },
   },
@@ -97,8 +107,11 @@ const basicList = createSlice({
         Object.entries(state).map(([key]) => {
           const obj = state[key];
           Object.entries(state[key]).map(([keys]) => {
-            console.log(obj[keys].value);
-            obj[keys].value = action.payload.get(key + keys);
+            if (obj[keys].name === "찬송가") {
+              obj[keys].value = action.payload.get(key + keys).split(",");
+            } else {
+              obj[keys].value = action.payload.get(key + keys);
+            }
           });
         });
       }

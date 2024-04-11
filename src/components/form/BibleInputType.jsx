@@ -33,7 +33,6 @@ const BibleInput = ({ label, target, edit, lastValue }, ref) => {
           setSecondBibleFirstNum(twoBible[1].split(".")[1]);
         }
       } else {
-        console.log(lastValue.split("."));
         setBibleName(lastValue.split(".")[0]);
         setBibleFirstNum(lastValue.split(".")[1].split(":")[0]);
         setBibleSecondNum(lastValue.split(".")[1].split(":")[1]);

@@ -1,6 +1,6 @@
 .header {
   width: 100%;
-  height: 56px;
+  height: 64px;
   position: fixed;
   top: 0;
   display: flex;
@@ -10,6 +10,11 @@
   padding: 0 20px;
   background-color: #fff;
 
+  .title {
+    font-size: 18px;
+    font-weight: 700;
+  }
+
   .backBtn,
   .homeBtn {
     width: 36px;
@@ -17,5 +22,10 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
+  }
+
+  .rightWrap {
+    display: flex;
+    align-items: center;
   }
 }

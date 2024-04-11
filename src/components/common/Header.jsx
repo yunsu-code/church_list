@@ -4,8 +4,9 @@ import ArrowLeftSLineIcon from "remixicon-react/ArrowLeftSLineIcon";
 import Home4LineIcon from "remixicon-react/Home4LineIcon";
 import { useNavigate } from "react-router-dom";
 
-const Header = () => {
+const Header = ({ title, children }) => {
   const navigate = useNavigate();
+
   return (
     <header className={styles.header}>
       <button
@@ -15,12 +16,15 @@ const Header = () => {
       >
         <ArrowLeftSLineIcon size={34} />
       </button>
-      <div className={styles.title}>헤더</div>
-      <Link to="/">
-        <button type="button" className={styles.homeBtn}>
-          <Home4LineIcon size={26} />
-        </button>
-      </Link>
+      <div className={styles.title}>{title}</div>
+      <div className={styles.rightWrap}>
+        {children}
+        <Link to="/">
+          <button type="button" className={styles.homeBtn}>
+            <Home4LineIcon size={27} />
+          </button>
+        </Link>
+      </div>
     </header>
   );
 };
