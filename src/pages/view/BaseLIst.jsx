@@ -3,15 +3,25 @@ import { useSelector } from "react-redux";
 import Header from "@components/common/Header";
 import Container from "@components/view/Container";
 import litany from "@data/litany.json";
+import PrinterLineIcon from "remixicon-react/PrinterLineIcon";
+import styles from "./BaseLIst.module.scss";
 
 const BaseLIst = () => {
   const basicList = useSelector((state) => state.basicList);
   const notice = useSelector((state) => state.notice);
 
+  const onPrint = () => {
+    window.print();
+  };
+
   return (
     <>
       <Reset />
-      <Header title={"예배 순서지"} />
+      <Header title={"예배 순서지"}>
+        <button type="button" className={styles.printBtn} onClick={onPrint}>
+          <PrinterLineIcon size={27} />
+        </button>
+      </Header>
       <Container>
         <h2>BaseList</h2>
         <ul>
