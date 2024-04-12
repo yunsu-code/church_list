@@ -9,13 +9,12 @@ import SelectBtnInputType from "@components/form/SelectBtnInputType";
 import { useNavigate } from "react-router-dom";
 import AddTextListType from "@components/form/AddTextListType";
 import BibleInputType from "@components/form/BibleInputType";
-import { Reset } from "styled-reset";
 import Header from "@components/common/Header";
 import styles from "./BaseListForm.module.scss";
 import EventToggleBtn from "../../components/form/EventToggleBtn";
 import { useState } from "react";
 import cx from "classnames";
-import AsteriskIcon from "remixicon-react/AsteriskIcon";
+import { RiAsterisk } from "@remixicon/react";
 
 const BaseListForm = () => {
   let inputArray = [];
@@ -75,7 +74,6 @@ const BaseListForm = () => {
 
   return (
     <>
-      <Reset />
       <Header title={"예배 순서지 입력하기"}>
         <button
           type="button"
@@ -85,12 +83,12 @@ const BaseListForm = () => {
           {edit ? "취소하기" : "이전 내역 불러오기"}
         </button>
       </Header>
-      <Container>
+      <Container type="form">
         {Object.entries(basicList).map(([key], idx) => {
           return (
             <div key={key} className={styles.listContainer}>
               <div className={styles.listTitle}>
-                <AsteriskIcon size={18} color="#3860ff" />
+                <RiAsterisk size={18} color="#3860ff" />
                 {key}
               </div>
               {Object.entries(basicList[key]).map(([keys, values]) => {
@@ -145,7 +143,7 @@ const BaseListForm = () => {
         </div>
         <div className={styles.listContainer}>
           <div className={styles.listTitle}>
-            <AsteriskIcon size={18} color="#3860ff" />
+            <RiAsterisk size={18} color="#3860ff" />
             특정 날 선택
           </div>
           <EventToggleBtn setEventName={setEventName} edit={edit} />

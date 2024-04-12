@@ -76,7 +76,7 @@ const initialState = {
   },
   다음주예배위원: {
     주일낮예배기도: {
-      name: "주일 낮 예배 기도",
+      name: "주일 찬양 예배 기도",
       type: "select",
       value: "",
     },

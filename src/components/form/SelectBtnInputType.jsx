@@ -6,7 +6,16 @@ const SelectBtnInput = ({ label, target, edit, lastValue }, ref) => {
   let [values, setValues] = useState([]);
   let [selectVal, setSelectVal] = useState();
 
-  const member = ["김철수", "이영희", "신윤수", "신민영", "최하영", "이준혁"];
+  const member = [
+    "황맹례 권사",
+    "황맹심 전도사",
+    "신승호 집사",
+    "황맹임 집사",
+    "황성익 성도",
+    "황찬익 성도",
+    "신민영 청년",
+    "신윤수 청년",
+  ];
 
   // 수정하기
   useEffect(() => {

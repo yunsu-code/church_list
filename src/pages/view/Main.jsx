@@ -9,7 +9,7 @@ const Main = () => {
     <>
       <Reset />
       <Header />
-      <Container>
+      <Container type="form">
         <div className={styles.mainWrap}>
           <Link to="/BaseList">BaseList</Link>
           <Link to="/BaseListForm">BaseListForm22</Link>

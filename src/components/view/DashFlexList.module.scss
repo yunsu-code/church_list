@@ -1,0 +1,45 @@
+.dashFlexList {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: stretch;
+  font-size: 11px;
+  gap: 9px;
+  .label {
+    flex-shrink: 0;
+    text-align-last: justify;
+    min-width: 60px;
+  }
+  .tail {
+    flex-shrink: 0;
+    min-width: 50px;
+    text-align-last: justify;
+  }
+  .center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    &.noCenter {
+      gap: 0;
+      .dash {
+        width: 100%;
+      }
+      .dash:last-child {
+        display: none;
+      }
+    }
+    .centerTitle {
+      max-width: 320px;
+      flex-shrink: 0;
+      font-weight: 500;
+      min-width: 0;
+    }
+    .dash {
+      height: 20px;
+      font-size: 14px;
+      overflow-y: hidden;
+      width: 50%;
+    }
+  }
+}
