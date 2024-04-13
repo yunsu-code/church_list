@@ -22,6 +22,11 @@ const initialState = {
       type: "select",
       value: "",
     },
+    설교제목: {
+      name: "설교제목",
+      type: "basic",
+      value: "",
+    },
   },
   주일찬양예배: {
     찬송가: {
@@ -37,6 +42,11 @@ const initialState = {
     기도: {
       name: "기도",
       type: "select",
+      value: "",
+    },
+    설교제목: {
+      name: "설교제목",
+      type: "basic",
       value: "",
     },
   },
@@ -56,6 +66,11 @@ const initialState = {
       type: "select",
       value: "",
     },
+    설교제목: {
+      name: "설교제목",
+      type: "basic",
+      value: "",
+    },
   },
   금요예배: {
     찬송가: {
@@ -73,9 +88,14 @@ const initialState = {
       type: "select",
       value: "",
     },
+    설교제목: {
+      name: "설교제목",
+      type: "basic",
+      value: "",
+    },
   },
   다음주예배위원: {
-    주일낮예배기도: {
+    주일찬양예배기도: {
       name: "주일 찬양 예배 기도",
       type: "select",
       value: "",

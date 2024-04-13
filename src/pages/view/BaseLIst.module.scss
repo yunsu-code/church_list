@@ -5,17 +5,18 @@
   display: flex;
   page-break-after: always;
   width: 100%;
+  height: 100%;
 }
 .bigTitle {
-  font-size: 15px;
+  font-size: 16px;
   font-weight: 700;
   text-align: center;
-  margin-bottom: 4px;
 }
 .time {
-  font-size: 12px;
+  font-size: 11px;
   display: flex;
   justify-content: space-between;
+  margin-bottom: 10px;
 }
 .printBtn {
   width: 36px;
@@ -27,7 +28,7 @@
 }
 .litany {
   div + div {
-    margin-top: 4px;
+    margin-top: 3px;
   }
   svg {
     margin-right: 2px;
@@ -37,11 +38,16 @@
     text-underline-offset: 3px;
     font-size: 12px;
     display: flex;
-    align-items: center;
+    align-items: flex-start;
+    svg {
+      flex-shrink: 0;
+      margin-top: 3px;
+    }
   }
   .person {
     font-size: 12px;
     font-weight: 700;
+    padding-left: 12px;
   }
   .all {
     text-decoration: underline;
@@ -50,5 +56,205 @@
     display: flex;
     align-items: center;
     font-weight: 700;
+  }
+}
+.infoText {
+  font-size: 11px;
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+  svg {
+    margin-right: 2px;
+  }
+}
+
+.backRightSide {
+  .infoText {
+    margin-top: 0;
+    margin-bottom: 14px;
+  }
+  .time {
+    margin-bottom: 7px;
+  }
+}
+
+.contentBoxWrap {
+  .contentBoxRow {
+    display: flex;
+    border: 1px solid #6a6a6a;
+    &:first-of-type {
+      border-bottom: 0;
+    }
+  }
+  .contentBox {
+    width: 50%;
+    height: 100%;
+    padding: 25px 10px;
+    .bigTitle {
+      margin-bottom: 10px;
+    }
+    &:first-child {
+      border-right: 1px solid #6a6a6a;
+    }
+  }
+  .nextWeek {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    .bigTitle {
+      margin-bottom: 5px;
+    }
+    .desc {
+      font-size: 14px;
+      text-align: center;
+      margin-bottom: 18px;
+    }
+    .nextWeekList {
+      font-size: 12px;
+    }
+    .nextWeekLabel {
+      display: inline-flex;
+      align-items: center;
+      font-weight: 500;
+      svg {
+        margin-right: 2px;
+      }
+    }
+  }
+}
+
+.dawnWorship {
+  font-size: 11px;
+  margin-top: 14px;
+  p {
+    display: flex;
+    align-items: center;
+    line-height: 17px;
+    svg {
+      flex-shrink: 0;
+      margin-right: 2px;
+    }
+  }
+  p + p {
+    margin-top: 3px;
+  }
+}
+
+.notice {
+  .title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    line-height: 18px;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 10px;
+    span {
+      margin: 0 4px;
+    }
+  }
+  .desc {
+    text-align: center;
+    font-size: 14px;
+    margin-bottom: 14px;
+  }
+  .noticeLIst {
+    li {
+      display: flex;
+      gap: 3px;
+      font-size: 12px;
+    }
+    li + li {
+      margin-top: 2px;
+    }
+  }
+  .bibleWord {
+    font-size: 13px;
+    text-align: center;
+    p + p {
+      margin-top: 14px;
+    }
+  }
+  .worshipTime {
+    border: 1px solid #000;
+    margin-top: 18px;
+    .worshipTimeTitle {
+      justify-content: center;
+      font-weight: 500;
+      font-size: 14px;
+    }
+    div {
+      display: flex;
+      justify-content: space-between;
+      gap: 100px;
+      font-size: 12px;
+      padding: 3px 14px;
+    }
+    p {
+      width: 100%;
+      text-align-last: justify;
+    }
+    div + div {
+      border-top: 1px solid #000;
+    }
+  }
+}
+
+.frontRightSide {
+  padding-top: 65px;
+  padding-bottom: 65px;
+  .date {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 16px;
+  }
+  .churchName {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    gap: 20px;
+    span {
+      display: block;
+      margin-bottom: 10px;
+      font-size: 20px;
+      font-weight: 800;
+    }
+    p {
+      font-size: 56px;
+      font-weight: 800;
+      letter-spacing: 10px;
+    }
+  }
+  
+  .slogan {
+    font-size: 23px;
+    line-height: 30px;
+    font-weight: 700;
+    margin-top: 50px;
+    text-align: center;
+  }
+  .goal {
+    display: flex;
+    justify-content: flex-end;
+    font-size: 22px;
+    line-height: 30px;
+    font-weight: 700;
+    padding-top: 40px;
+    padding-right: 40px;
+    p {
+      display: flex;
+      align-items: center;
+    }
+    p + p {
+      margin-top: 8px;
+    }
+  }
+  .memberInfo {
+    font-size: 15px;
+    p + p {
+      margin-top: 4px;
+    }
   }
 }

@@ -1,9 +1,9 @@
 import styles from "./Container.module.scss";
 import cx from "classnames";
 
-const Container = ({ children, type }) => {
+const Container = ({ children, type, className }) => {
   return (
-    <div className={cx(styles.container, type && styles[type])}>{children}</div>
+    <div className={cx(styles.container, type && styles[type], className)}>{children}</div>
   );
 };
 

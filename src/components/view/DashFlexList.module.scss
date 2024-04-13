@@ -5,13 +5,27 @@
   justify-content: stretch;
   font-size: 11px;
   gap: 9px;
+  & + .dashFlexList {
+    margin-top: 1px;
+  }
+  .asterisk {
+    margin-right: 2px;
+  }
   .label {
+    display: flex;
+    align-items: center;
     flex-shrink: 0;
-    text-align-last: justify;
     min-width: 60px;
+    span {
+      display: block;
+      width: 100%;
+      text-align-last: justify;
+      line-height: 17px;
+    }
   }
   .tail {
     flex-shrink: 0;
+    line-height: 17px;
     min-width: 50px;
     text-align-last: justify;
   }
@@ -36,10 +50,32 @@
       min-width: 0;
     }
     .dash {
-      height: 20px;
+      height: 17px;
       font-size: 14px;
       overflow-y: hidden;
       width: 50%;
+      line-height: 14px;
+    }
+  }
+  &.part2 {
+    gap: 5px;
+    .label {
+      min-width: 40px;
+    }
+    .tail {
+      min-width: 40px;
+    }
+    .center {
+      gap: 3px;
+    }
+  }
+  &.sermon {
+    align-items: flex-start;
+    .tail {
+      flex-grow: 0;
+      max-width: 70%;
+      text-align-last: unset;
+      text-align: right;
     }
   }
 }

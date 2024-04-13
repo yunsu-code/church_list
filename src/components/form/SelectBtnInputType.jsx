@@ -7,14 +7,14 @@ const SelectBtnInput = ({ label, target, edit, lastValue }, ref) => {
   let [selectVal, setSelectVal] = useState();
 
   const member = [
-    "황맹례 권사",
-    "황맹심 전도사",
-    "신승호 집사",
-    "황맹임 집사",
-    "황성익 성도",
-    "황찬익 성도",
-    "신민영 청년",
-    "신윤수 청년",
+    "황 맹례 권사",
+    "황 맹심 전도사",
+    "신 승호 집사",
+    "황 맹임 집사",
+    "황 성익 성도",
+    "황 찬익 성도",
+    "신 민영 청년",
+    "신 윤수 청년",
   ];
 
   // 수정하기

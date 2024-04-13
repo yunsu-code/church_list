@@ -6,12 +6,15 @@
 .leftSide {
   width: 50%;
   height: 100%;
-  padding: 40px 35px 40px 30px;
+  padding: 43px 35px 43px 20px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
 .rightSide {
   width: 50%;
-  padding: 40px 30px 40px 35px;
+  padding: 40px 20px 40px 35px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
