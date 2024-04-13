@@ -11,8 +11,8 @@ const Main = () => {
       <Header />
       <Container type="form">
         <div className={styles.mainWrap}>
-          <Link to="/BaseList">BaseList</Link>
-          <Link to="/BaseListForm">BaseListForm22</Link>
+          <Link to="/BaseListForm">주보 만들기</Link>
+          <Link to="/BaseList">주보 완성본</Link>
         </div>
       </Container>
     </>

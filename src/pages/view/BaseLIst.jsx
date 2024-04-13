@@ -404,7 +404,7 @@ const BaseLIst = () => {
                         주일 찬양예배 기도
                       </span>
                     }
-                    tail={basicList.다음주예배위원.주일낮예배기도.value}
+                    tail={basicList.다음주예배위원.주일찬양예배기도.value}
                   />
                   <DashFlexList
                     part2
