@@ -12,9 +12,10 @@ const SelectBtnInput = ({ label, target, edit, lastValue }, ref) => {
     "신 승호 집사",
     "황 맹임 집사",
     "황 성익 성도",
-    "황 찬익 성도",
+    "황 찬익 청년",
     "신 민영 청년",
     "신 윤수 청년",
+    "이 현우 성도",
   ];
 
   // 수정하기
