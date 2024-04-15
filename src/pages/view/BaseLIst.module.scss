@@ -8,15 +8,19 @@
   height: 100%;
 }
 .bigTitle {
-  font-size: 16px;
+  font-size: 17px;
   font-weight: 700;
   text-align: center;
 }
 .time {
   font-size: 11px;
   display: flex;
+  align-items: flex-end;
   justify-content: space-between;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
+  .bigTitle {
+    padding-left: 50px;
+  }
 }
 .printBtn {
   width: 36px;
@@ -27,6 +31,7 @@
   margin-right: 8px;
 }
 .litany {
+  font-size: 12px;
   div + div {
     margin-top: 3px;
   }
@@ -36,7 +41,6 @@
   .pastor {
     text-decoration: underline;
     text-underline-offset: 3px;
-    font-size: 12px;
     display: flex;
     align-items: flex-start;
     svg {
@@ -45,14 +49,12 @@
     }
   }
   .person {
-    font-size: 12px;
     font-weight: 700;
     padding-left: 12px;
   }
   .all {
     text-decoration: underline;
     text-underline-offset: 3px;
-    font-size: 12px;
     display: flex;
     align-items: center;
     font-weight: 700;
@@ -108,9 +110,6 @@
       font-size: 14px;
       text-align: center;
       margin-bottom: 18px;
-    }
-    .nextWeekList {
-      font-size: 12px;
     }
     .nextWeekLabel {
       display: inline-flex;
@@ -188,8 +187,8 @@
       display: flex;
       justify-content: space-between;
       gap: 100px;
-      font-size: 12px;
       padding: 3px 14px;
+      font-size: 12px;
     }
     p {
       width: 100%;
@@ -227,7 +226,7 @@
       letter-spacing: 10px;
     }
   }
-  
+
   .slogan {
     font-size: 23px;
     line-height: 30px;

@@ -6,7 +6,7 @@
   font-size: 11px;
   gap: 9px;
   & + .dashFlexList {
-    margin-top: 1px;
+    margin-top: 2px;
   }
   .asterisk {
     margin-right: 2px;
@@ -16,6 +16,7 @@
     align-items: center;
     flex-shrink: 0;
     min-width: 60px;
+    font-size: 12px;
     span {
       display: block;
       width: 100%;
@@ -28,6 +29,7 @@
     line-height: 17px;
     min-width: 50px;
     text-align-last: justify;
+    font-size: 12px;
   }
   .center {
     display: flex;
@@ -48,6 +50,7 @@
       flex-shrink: 0;
       font-weight: 500;
       min-width: 0;
+      font-size: 12px;
     }
     .dash {
       height: 17px;
@@ -73,6 +76,7 @@
     align-items: flex-start;
     .tail {
       flex-grow: 0;
+      min-width: unset;
       max-width: 70%;
       text-align-last: unset;
       text-align: right;

@@ -14,7 +14,8 @@
   header {
     display: none !important;
   }
-  body > div, body > div > div {
+  body > div,
+  body > div > div {
     height: 210mm;
   }
 }
@@ -22,7 +23,7 @@
 * {
   box-sizing: border-box;
   font-family: "Noto Serif KR", serif !important;
-  font-weight: 300;
+  font-weight: 400;
 }
 
 /* reset */
