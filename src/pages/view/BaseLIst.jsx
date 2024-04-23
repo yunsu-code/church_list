@@ -9,7 +9,6 @@ import {
   RiPrinterLine,
   RiAsterisk,
   RiSunLine,
-  RiSeedlingLine,
   RiCrossLine,
   RiAwardFill,
 } from "@remixicon/react";
@@ -20,6 +19,7 @@ import { useEffect } from "react";
 const BaseLIst = () => {
   const [today, setToday] = useState("");
   const basicList = useSelector((state) => state.basicList);
+  const event = useSelector((state) => state.event);
   const notice = useSelector((state) => state.notice);
 
   const onPrint = () => {
@@ -33,6 +33,8 @@ const BaseLIst = () => {
       }.${new Date().getDate()}`
     );
   }, []);
+
+  console.log(event);
 
   return (
     <>
@@ -77,7 +79,7 @@ const BaseLIst = () => {
                       if (idx % 2 == 0) {
                         return (
                           <div className={styles.pastor} key={idx}>
-                            <RiCrossFill size={11} /> {el}
+                            <RiCrossFill size={12} /> {el}
                           </div>
                         );
                       } else {
@@ -126,6 +128,23 @@ const BaseLIst = () => {
                 center={`[ ${basicList.주일낮예배.설교제목.value} ]`}
               />
               <DashFlexList label="목 회 기 도" tail="인 도 자" />
+              {event === "성찬 예배" ? (
+                <>
+                  <DashFlexList label="성 찬" tail="인 도 자" asterisk />
+                  <DashFlexList
+                    className={styles.sacrament}
+                    label="떡을 나눔"
+                    tail="인 도 자"
+                    asterisk
+                  />
+                  <DashFlexList
+                    className={styles.sacrament}
+                    label="술을 나눔"
+                    tail="인 도 자"
+                    asterisk
+                  />
+                </>
+              ) : null}
               <DashFlexList
                 label="봉 헌 찬 송"
                 tail="다 같 이"
@@ -346,7 +365,7 @@ const BaseLIst = () => {
                     className={styles.nextWeekList}
                     label={
                       <span className={styles.nextWeekLabel}>
-                        <RiSeedlingLine size={14} color="#000" />
+                        <RiCrossLine size={14} color="#000" />
                         주일 낮 대표 기도
                       </span>
                     }
@@ -357,7 +376,7 @@ const BaseLIst = () => {
                     className={styles.nextWeekList}
                     label={
                       <span className={styles.nextWeekLabel}>
-                        <RiSeedlingLine size={14} color="#000" />
+                        <RiCrossLine size={14} color="#000" />
                         주일 찬양예배 기도
                       </span>
                     }
@@ -368,7 +387,7 @@ const BaseLIst = () => {
                     className={styles.nextWeekList}
                     label={
                       <span className={styles.nextWeekLabel}>
-                        <RiSeedlingLine size={14} color="#000" />
+                        <RiCrossLine size={14} color="#000" />
                         삼일 수요 기도
                       </span>
                     }
@@ -379,7 +398,7 @@ const BaseLIst = () => {
                     className={styles.nextWeekList}
                     label={
                       <span className={styles.nextWeekLabel}>
-                        <RiSeedlingLine size={14} color="#000" />
+                        <RiCrossLine size={14} color="#000" />
                         금요 철야 기도
                       </span>
                     }
@@ -390,7 +409,7 @@ const BaseLIst = () => {
                     className={styles.nextWeekList}
                     label={
                       <span className={styles.nextWeekLabel}>
-                        <RiSeedlingLine size={14} color="#000" />
+                        <RiCrossLine size={14} color="#000" />
                         새벽 기도
                       </span>
                     }
@@ -401,7 +420,7 @@ const BaseLIst = () => {
                     className={styles.nextWeekList}
                     label={
                       <span className={styles.nextWeekLabel}>
-                        <RiSeedlingLine size={14} color="#000" />
+                        <RiCrossLine size={14} color="#000" />
                         헌금 위원
                       </span>
                     }
@@ -412,7 +431,7 @@ const BaseLIst = () => {
                     className={styles.nextWeekList}
                     label={
                       <span className={styles.nextWeekLabel}>
-                        <RiSeedlingLine size={14} color="#000" />
+                        <RiCrossLine size={14} color="#000" />
                         다음주 특송
                       </span>
                     }
@@ -575,6 +594,13 @@ const BaseLIst = () => {
               <p>설립일 2005.11.23</p>
             </div>
             <div>
+              {event !== "" ? (
+                <div className={styles.event}>
+                  <RiCrossFill size={36} color="#000" />
+                  {event}
+                  <RiCrossFill size={36} color="#000" />
+                </div>
+              ) : null}
               <div className={styles.churchName}>
                 <span>대한예수교 장로회</span>
                 <p>영광 교회</p>

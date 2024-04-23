@@ -5,7 +5,7 @@ import { useEffect } from "react";
 import { useSelector } from "react-redux";
 const EventToggleBtn = ({ setEventName, edit }) => {
   const [current, setCurrent] = useState(0);
-  const eventList = ["", "성찬예배", "추수감사절", "맥추감사절", "부활절"];
+  const eventList = ["", "성찬 예배", "추수감사절", "맥추감사절", "부활절"];
   const lastEvent = useSelector((state) => state.event);
 
   const getBtnValue = (e, idx) => {
