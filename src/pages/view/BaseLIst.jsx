@@ -34,8 +34,6 @@ const BaseLIst = () => {
     );
   }, []);
 
-  console.log(event);
-
   return (
     <>
       <div className={styles.listWrap}>
