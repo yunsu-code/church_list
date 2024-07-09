@@ -91,7 +91,7 @@ const BaseLIst = () => {
                   )}
                   {litany[basicList.주일낮예배.교독문.value].all ? (
                     <div className={styles.all}>
-                      <RiCrossFill size={11} />
+                      <RiCrossFill size={12} />
                       {litany[basicList.주일낮예배.교독문.value].all}
                     </div>
                   ) : null}
@@ -628,7 +628,7 @@ const BaseLIst = () => {
               <p>담임 목사 : 황 우기 목사 (H.P 010-7196-9433)</p>
               <p>전도사 : 황 맹심 전도사 (H.P 010-7588-2148)</p>
               <p>교회 : TEL 032-423-0691</p>
-              <p>주소 : 인천광역시 남동수 간석1동 901-8호 3층</p>
+              <p>주소 : 인천광역시 남동구 간석1동 901-8호 3층</p>
             </div>
           </Container>
           {/* E : rightSide */}
