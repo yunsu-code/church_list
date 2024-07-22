@@ -18,9 +18,9 @@ const BibleInput = ({ label, target, edit, lastValue }, ref) => {
   // 수정하기
   useEffect(() => {
     if (edit) {
-      if (lastValue.includes("/")) {
+      if (lastValue.includes("|")) {
         setSecondBibleArea(true);
-        const twoBible = lastValue.split("/");
+        const twoBible = lastValue.split("|");
         setBibleName(twoBible[0].split(".")[0]);
         setSecondBibleName(twoBible[1].split(".")[0]);
         if (lastValue.includes(":")) {
@@ -112,7 +112,7 @@ const BibleInput = ({ label, target, edit, lastValue }, ref) => {
           secondBibleFirstNum +
           (secondBibleSecondNum ? `:${secondBibleSecondNum}` : "")
       );
-      setvalues(firstBibleFullName + "/" + secondBibleFullName);
+      setvalues(firstBibleFullName + " | " + secondBibleFullName);
     }
     if (bibleName === "" || bibleFirstNum === "") {
       setFirstBibleFullName("");
