@@ -25,7 +25,7 @@ const BaseLIst = () => {
   const onPrint = () => {
     window.print();
   };
-
+  
   useEffect(() => {
     setToday(
       `${new Date().getFullYear()}.${
@@ -126,7 +126,7 @@ const BaseLIst = () => {
                 center={`[ ${basicList.주일낮예배.설교제목.value} ]`}
               />
               <DashFlexList label="목 회 기 도" tail="인 도 자" />
-              {event === "성찬 예배" ? (
+              {event.includes("성찬 예배") ? (
                 <>
                   <DashFlexList label="성 찬" tail="인 도 자" asterisk />
                   <DashFlexList
@@ -592,10 +592,10 @@ const BaseLIst = () => {
               <p>설립일 2005.11.23</p>
             </div>
             <div>
-              {event !== "" ? (
+              {event.length !== 0 ? (
                 <div className={styles.event}>
                   <RiCrossFill size={36} color="#000" />
-                  {event}
+                  {event.join(", ")}
                   <RiCrossFill size={36} color="#000" />
                 </div>
               ) : null}

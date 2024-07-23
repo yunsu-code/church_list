@@ -19,7 +19,7 @@ import { RiAsterisk } from "@remixicon/react";
 const BaseListForm = () => {
   let inputArray = [];
   const basicList = useSelector((state) => state.basicList);
-  const [eventName, setEventName] = useState("");
+  const [eventName, setEventName] = useState([]);
   const [edit, setEdit] = useState(false);
   const inputRef = useRef({});
   const noticeRef = useRef({});
