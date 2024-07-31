@@ -15,7 +15,7 @@
 }
 .time {
   height: 16px;
-  font-size: 11px;
+  font-size: 12px;
   display: flex;
   align-items: flex-end;
   justify-content: space-between;
@@ -33,12 +33,21 @@
   margin-right: 8px;
 }
 .litany {
-  font-size: 12px;
+  font-size: 13px;
+  div {
+    line-height: 18px;
+  }
   div + div {
-    margin-top: 3px;
+    margin-top: 8px;
+  }
+  &.toMuch {
+    div + div {
+      margin-top: 5px;
+    }
   }
   svg {
     margin-right: 2px;
+    flex-shrink: 0;
   }
   .pastor {
     text-decoration: underline;
@@ -47,7 +56,7 @@
     align-items: flex-start;
     svg {
       flex-shrink: 0;
-      margin-top: 3px;
+      margin-top: 1px;
     }
   }
   .person {
@@ -58,7 +67,7 @@
     text-decoration: underline;
     text-underline-offset: 3px;
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     font-weight: 700;
   }
 }
@@ -66,7 +75,7 @@
   font-size: 11px;
   display: flex;
   align-items: center;
-  margin-top: 8px;
+  margin-top: 5px;
   svg {
     margin-right: 2px;
   }
@@ -119,18 +128,27 @@
       align-items: center;
       font-weight: 500;
       svg {
-        margin-top: 2px;
         margin-right: 2px;
       }
     }
     .nextWeekList + .nextWeekList {
       margin-top: 4px;
     }
+    .specialSong {
+      div:last-child {
+        min-width: 93px;
+        max-width: 93px;
+        flex-shrink: unset;
+        text-align-last: unset;
+        word-break: break-word;
+        white-space: break-spaces;
+      }
+    }
   }
 }
 
 .dawnWorship {
-  font-size: 11px;
+  font-size: 12px;
   margin-top: 14px;
   p {
     display: flex;
@@ -169,10 +187,10 @@
     li {
       display: flex;
       gap: 3px;
-      font-size: 12px;
+      font-size: 13px;
     }
     li + li {
-      margin-top: 2px;
+      margin-top: 4px;
     }
   }
   .bibleWord {
@@ -195,7 +213,7 @@
       justify-content: space-between;
       gap: 100px;
       padding: 3px 14px;
-      font-size: 12px;
+      font-size: 13px;
     }
     p {
       width: 100%;
@@ -208,8 +226,8 @@
 }
 
 .frontRightSide {
-  padding-top: 65px;
-  padding-bottom: 65px;
+  padding-top: 54px;
+  padding-bottom: 54px;
   .date {
     display: flex;
     align-items: center;
@@ -238,7 +256,7 @@
   .event {
     font-size: 40px;
     font-weight: 600;
-    margin-bottom: 18px;
+    margin-bottom: 22px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -279,4 +297,9 @@
 
 .sacrament {
   padding-left: 66px;
+  margin-top: 0px !important;
+  height: 16px !important;
+  div {
+    font-size: 12px !important;
+  }
 }

@@ -18,6 +18,7 @@ import { useEffect } from "react";
 
 const BaseLIst = () => {
   const [today, setToday] = useState("");
+  const [litanyLength, setlitanyLength] = useState(null);
   const basicList = useSelector((state) => state.basicList);
   const event = useSelector((state) => state.event);
   const notice = useSelector((state) => state.notice);
@@ -27,11 +28,19 @@ const BaseLIst = () => {
   };
   
   useEffect(() => {
+    // 교독문 발행일
     setToday(
       `${new Date().getFullYear()}.${
         new Date().getMonth() + 1
       }.${new Date().getDate()}`
     );
+
+    // 교독문 몇줄인지 체크
+    if(litany[basicList.주일낮예배.교독문.value].all) {
+      setlitanyLength(litany[basicList.주일낮예배.교독문.value].text.length + 1)
+    } else {
+      setlitanyLength(litany[basicList.주일낮예배.교독문.value].text.length)
+    }
   }, []);
 
   return (
@@ -69,7 +78,8 @@ const BaseLIst = () => {
                 }`}
               />
             </div>
-            <div className={styles.litany}>
+            {/* 교독문 12줄 이상일 경우 간격 변경 */}
+            <div className={cx(styles.litany, litanyLength >= 12 && event.includes("성찬 예배") ? styles.toMuch : null)}>
               {basicList.주일낮예배.교독문.value !== "" ? (
                 <>
                   {litany[basicList.주일낮예배.교독문.value].text.map(
@@ -77,7 +87,7 @@ const BaseLIst = () => {
                       if (idx % 2 == 0) {
                         return (
                           <div className={styles.pastor} key={idx}>
-                            <RiCrossFill size={12} /> {el}
+                            <RiCrossFill size={13} /> {el}
                           </div>
                         );
                       } else {
@@ -91,7 +101,7 @@ const BaseLIst = () => {
                   )}
                   {litany[basicList.주일낮예배.교독문.value].all ? (
                     <div className={styles.all}>
-                      <RiCrossFill size={12} />
+                      <RiCrossFill size={13} />
                       {litany[basicList.주일낮예배.교독문.value].all}
                     </div>
                   ) : null}
@@ -150,7 +160,6 @@ const BaseLIst = () => {
               />
               <DashFlexList label="봉 헌 기 도" tail="인 도 자" />
               <DashFlexList label="교 회 소 식" tail="인 도 자" />
-              <DashFlexList label="성도의 교제" tail="인 도 자" />
               <DashFlexList
                 asterisk
                 label="찬 송"
@@ -159,7 +168,7 @@ const BaseLIst = () => {
               />
               <DashFlexList asterisk label="축 도" tail="담임 목사" />
               <p className={styles.infoText}>
-                <RiAsterisk size={10} color="#000" />
+                <RiAsterisk size={9} color="#000" />
                 예배 10분전에 참석하여 기도로 준비하시기 바랍니다.
               </p>
             </div>
@@ -426,7 +435,7 @@ const BaseLIst = () => {
                   />
                   <DashFlexList
                     part2
-                    className={styles.nextWeekList}
+                    className={cx(styles.nextWeekList, styles.specialSong)}
                     label={
                       <span className={styles.nextWeekLabel}>
                         <RiCrossLine size={14} color="#000" />
@@ -611,15 +620,15 @@ const BaseLIst = () => {
               <div>목표 : </div>
               <div className="">
                 <p>
-                  <RiAwardFill size={22} color="#000" />
+                  <RiAwardFill size={28} color="#000" />
                   말씀 중심
                 </p>
                 <p>
-                  <RiAwardFill size={22} color="#000" />
+                  <RiAwardFill size={28} color="#000" />
                   교회 중심
                 </p>
                 <p>
-                  <RiAwardFill size={22} color="#000" />
+                  <RiAwardFill size={28} color="#000" />
                   기도 중심
                 </p>
               </div>

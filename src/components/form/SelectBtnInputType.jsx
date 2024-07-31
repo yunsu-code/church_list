@@ -23,7 +23,7 @@ const SelectBtnInput = ({ label, target, edit, lastValue }, ref) => {
     if (edit) {
       setValues([lastValue]);
     } else {
-      setValues("");
+      setValues([]);
     }
   }, [edit]);
 
@@ -34,9 +34,11 @@ const SelectBtnInput = ({ label, target, edit, lastValue }, ref) => {
   };
 
   const onReset = () => {
-    setValues("");
+    setValues([]);
     setSelectVal("입력하기");
   };
+
+  console.log(values)
 
   return (
     <>
@@ -48,7 +50,7 @@ const SelectBtnInput = ({ label, target, edit, lastValue }, ref) => {
           type="text"
           className={target}
           ref={ref}
-          value={values || ""}
+          value={values.join(", ") || ""}
           placeholder="오른쪽 박스에서 선택해주세요"
         />
         <select
