@@ -136,7 +136,7 @@ const BibleInput = ({ label, target, edit, lastValue }, ref) => {
         />
         <div className={styles.bibleInputsWrap}>
           <div className={styles.bibleInputs}>
-            <input type="text" onChange={onBibleName} value={bibleName || ""} />
+            <input type="text" onChange={onBibleName} value={bibleName || ""} placeholder="권" />
             <span className={styles.colon}>.</span>
             <input
               type="text"
@@ -169,6 +169,7 @@ const BibleInput = ({ label, target, edit, lastValue }, ref) => {
               type="text"
               onChange={onSecondBibleName}
               value={secondBibleName || ""}
+              placeholder="권"
             />
             <span className={styles.colon}>.</span>
             <input
@@ -192,6 +193,7 @@ const BibleInput = ({ label, target, edit, lastValue }, ref) => {
               두번째 말씀 삭제
             </button>
           </div>
+          <p className={styles.alertText}>※ 두번째 말씀 추가는 권이 다른 경우에만 추가해주세요.</p>
         </div>
       </div>
     </>

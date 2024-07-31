@@ -23,13 +23,19 @@ const BasicInput = ({ label, target, lastValue, edit }, ref) => {
     <>
       <div className={styles.inputWrap}>
         <label>{label}</label>
-        <input
-          type="text"
-          className={target}
-          ref={ref}
-          onChange={onChange}
-          value={values || ""}
-        />
+        <div className={styles.basicInput}>
+          <input
+            type="text"
+            className={target}
+            ref={ref}
+            onChange={onChange}
+            value={values || ""}
+            />
+            {
+              label === '교독문' &&
+              <p className={styles.alertText}>※ 교독문은 번호만 입력해주세요.</p>
+            }
+        </div>
       </div>
     </>
   );
