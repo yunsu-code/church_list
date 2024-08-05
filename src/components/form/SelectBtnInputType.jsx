@@ -53,6 +53,9 @@ const SelectBtnInput = ({ label, target, edit, lastValue }, ref) => {
           value={values.join(", ") || ""}
           placeholder="오른쪽 박스에서 선택해주세요"
         />
+        <button type="button" className={styles.resetBtn} onClick={onReset}>
+          지우기
+        </button>
         <select
           className={styles.selectBox}
           name="member"
@@ -70,10 +73,6 @@ const SelectBtnInput = ({ label, target, edit, lastValue }, ref) => {
             );
           })}
         </select>
-
-        <button type="button" className={styles.resetBtn} onClick={onReset}>
-          지우기
-        </button>
       </div>
     </>
   );

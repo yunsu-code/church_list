@@ -18,6 +18,7 @@
     padding: 10px;
     min-width: 340px;
     font-size: 16px;
+    height: 42px;
     &::placeholder {
       font-size: 16px;
     }
@@ -28,6 +29,7 @@
     border-radius: 8px;
     border: 1px solid #b3b3b3;
     padding: 10px;
+    height: 42px;
   }
   .resetBtn {
     padding: 10px;
@@ -36,5 +38,6 @@
     border-radius: 8px;
     font-weight: 700;
     flex-shrink: 0;
+    height: 42px;
   }
 }
