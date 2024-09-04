@@ -452,12 +452,11 @@ const BaseLIst = () => {
               <p>
                 <RiSunLine size={13} color="#000" />
                 새벽 기도 -------- 매일 오전 5:00시 / 황 우기 목사 (대표 기도 :
-                황 맹례 권사)
+                {basicList.새벽기도.기도.value})
               </p>
               <p>
                 {/* eslint-disable-next-line react/no-unescaped-entities */}
-                "내가 새벽을 꺠우리로다"(시편 57:8) &#60;히.12 : 13 ~
-                13:16~22&#62; 강해 설교
+                "내가 새벽을 꺠우리로다"(시편 57:8) &#60;{basicList.새벽기도.성경봉독.value}&#62; 강해 설교
                 <br />
               </p>
             </div>

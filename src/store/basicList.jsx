@@ -94,6 +94,18 @@ const initialState = {
       value: "",
     },
   },
+  새벽기도: {
+    성경봉독: {
+      name: "성경봉독",
+      type: "basic",
+      value: "",
+    },
+    기도: {
+      name: "기도",
+      type: "select",
+      value: "",
+    },
+  },
   다음주예배위원: {
     주일찬양예배기도: {
       name: "주일 찬양 예배 기도",
