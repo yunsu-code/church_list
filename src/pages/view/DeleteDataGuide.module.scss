@@ -1,0 +1,26 @@
+.DeleteDataGuide {
+  padding-left: 40px;
+  padding-bottom: 60px;
+  img {
+    width: 950px;
+    &.subImg {
+      width: 900px;
+    }
+  }
+  .desc {
+    font-size: 18px;
+    & + p {
+      margin-top: 5px;
+    }
+  }
+  .descRed {
+    color: red;
+    font-weight: 700;
+  }
+  .subInfoBox {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 10px 0 0 20px;
+  }
+}

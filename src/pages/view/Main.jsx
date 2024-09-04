@@ -11,6 +11,7 @@ const Main = () => {
         <div className={styles.mainWrap}>
           <Link to="/BaseListForm">주보 만들기</Link>
           <Link to="/BaseList">주보 완성본</Link>
+          <Link className={styles.white} to="/DeleteDataGuide">데이터 지우는 방법</Link>
         </div>
       </Container>
     </>
