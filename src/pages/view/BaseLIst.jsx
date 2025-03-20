@@ -544,17 +544,29 @@ const BaseLIst = () => {
                 <li>
                   <span>1.</span>
                   <span>
-                    나라와 민족을 위해서 대통령과 국무위원을 위해서 해외의
-                    선교사님을 위해서 기도해 주시기 바랍니다.
+                    나라와 민족을 위해서 기도해 주시기 바랍니다.
                   </span>
                 </li>
                 <li>
                   <span>2.</span>
                   <span>
-                    영광교회와 담임 목사님을 위해서 이웃의 믿지않는 영혼들을
-                    위해 기도해 주시길 바랍니다.
+                    대통령과 국무위원을 위해서 기도해 주시길 바랍니다.
                   </span>
                 </li>
+                <li>
+                  <span>3.</span>
+                  <span>
+                    해외에서 선교하시는 선교사님들을 위해서 기도해주시기 바랍니다.
+                  </span>
+                </li>
+                <li>
+                  <span>4.</span>
+                  <span>
+                    영광교회와 담임 목사님을 위해서 이웃의 불신자들을
+                    위해서 기도해 주시길 바랍니다.
+                  </span>
+                </li>
+                
               </ol>
               <div className={styles.worshipTime}>
                 <div className={styles.worshipTimeTitle}>예배시간 안내</div>
